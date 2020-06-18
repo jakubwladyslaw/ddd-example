@@ -44,6 +44,27 @@ class CreatePackageForLastOrder
      */
     private $orderDetailsDTOFactory;
 
+    /**
+     * CreatePackageForLastOrder constructor.
+     *
+     * @param OrderRepositoryInterface       $orderRepository
+     * @param PackageTypeRepositoryInterface $packageTypeRepository
+     * @param PackageTypeFinder              $packageTypeFinder
+     * @param PackageFactory                 $packageFactory
+     * @param PackageRepositoryInterface     $packageRepository
+     * @param OrderDetailsDTOFactory         $orderDetailsDTOFactory
+     */
+    public function __construct(OrderRepositoryInterface $orderRepository, PackageTypeRepositoryInterface $packageTypeRepository, PackageTypeFinder $packageTypeFinder, PackageFactory $packageFactory, PackageRepositoryInterface $packageRepository, OrderDetailsDTOFactory $orderDetailsDTOFactory)
+    {
+        $this->orderRepository = $orderRepository;
+        $this->packageTypeRepository = $packageTypeRepository;
+        $this->packageTypeFinder = $packageTypeFinder;
+        $this->packageFactory = $packageFactory;
+        $this->packageRepository = $packageRepository;
+        $this->orderDetailsDTOFactory = $orderDetailsDTOFactory;
+    }
+
+
     public function execute(): OrderDetailsDTO
     {
         $order = $this->orderRepository->getLastOrder();
