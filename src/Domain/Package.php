@@ -42,4 +42,14 @@ class Package
     {
         return $this->order->getAddressLine();
     }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+
+    public function finishPackage()
+    {
+        $this->status = PackageStatus::FINISHED;
+    }
 }

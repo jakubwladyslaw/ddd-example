@@ -68,4 +68,9 @@ class Order
     {
         return $this->shippingAddress->getAddressLine();
     }
+
+    public function getOrderId(): int
+    {
+        return $this->orderId;
+    }
 }

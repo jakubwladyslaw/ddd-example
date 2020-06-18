@@ -7,4 +7,6 @@ namespace App\Domain;
 interface PackageRepositoryInterface
 {
     public function persist(Package $package): void;
+
+    public function getPackageById(int $id): Package;
 }
