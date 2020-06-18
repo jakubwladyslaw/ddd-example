@@ -12,6 +12,7 @@ class PackageTypeFinder
     {
         foreach ($packageTypes as $packageType) {
             if ($packageType->canHandle($order)) {
+
                return $packageType;
             }
         }

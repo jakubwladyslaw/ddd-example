@@ -36,6 +36,8 @@ class FinishPackage
     {
         $package = $this->packageRepository->getPackageById($command->getPackageId());
         $package->finishPackage();
+        $this->packageRepository->persist($package);
+        
         $order = $package->getOrder();
         $this->orderSystem->finishOrder($order->getOrderId());
     }

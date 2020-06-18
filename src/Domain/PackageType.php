@@ -35,14 +35,25 @@ class PackageType
         $this->name = $name;
     }
 
-
     public function canHandle(Order $order): bool
     {
-        
+        $canHandle = false;
+
+        if($order->getTotalOrderWeight() <= $this->getMaxWeight()) {
+
+            $canHandle = true;
+        }
+
+        return $canHandle;
     }
 
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getMaxWeight(): int
+    {
+        return $this->maxWeight;
     }
 }

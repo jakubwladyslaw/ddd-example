@@ -11,20 +11,15 @@ class OrderDetailsDTO
      */
     private $packageTypeName;
 
-    /**
-     * @var string
-     */
-    private $label;
 
     /**
      * @var OrderDetailsProductDTO[]
      */
     private $products;
 
-    public function __construct(string $packageTypeName, string $label, array $products)
+    public function __construct(string $packageTypeName, array $products)
     {
         $this->packageTypeName = $packageTypeName;
-        $this->label = $label;
         $this->products = $products;
     }
 }

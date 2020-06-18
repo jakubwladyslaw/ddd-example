@@ -51,5 +51,6 @@ class Package
     public function finishPackage()
     {
         $this->status = PackageStatus::FINISHED;
+
     }
 }

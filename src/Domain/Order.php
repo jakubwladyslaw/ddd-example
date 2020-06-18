@@ -73,4 +73,12 @@ class Order
     {
         return $this->orderId;
     }
+
+    /**
+     * @return OrderProduct[]
+     */
+    public function getProducts(): array
+    {
+        return $this->products;
+    }
 }
