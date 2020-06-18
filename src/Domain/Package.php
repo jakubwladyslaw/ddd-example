@@ -45,9 +45,8 @@ class Package
         return $this->type->getName();
     }
 
-    public function getOrderAddressLine()
+    public function getOrderAddressLine(): string
     {
-        $this->order->
     }
 
 }
