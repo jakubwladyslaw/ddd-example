@@ -7,7 +7,7 @@ namespace App\Application\UseCase;
 use App\Application\UseCase\Command\FinishPackageCommand;
 use App\Domain\Package;
 use App\Domain\PackageRepositoryInterface;
-use App\Infrastructure\OrderSystemInterface;
+use App\Application\OrderSystemInterface;
 
 class FinishPackage
 {

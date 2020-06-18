@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Infrastructure;
+namespace App\Application;
 
 
 interface OrderSystemInterface
