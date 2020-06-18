@@ -5,17 +5,11 @@ namespace App\Application\UseCase;
 
 
 use App\Application\UseCase\Command\FinishPackageCommand;
-use App\Domain\Package;
 use App\Domain\PackageRepositoryInterface;
 use App\Infrastructure\OrderSystemInterface;
 
 class FinishPackage
 {
-    /**
-     * @var Package
-     */
-    private $package;
-
     /**
      * @var PackageRepositoryInterface
      */
@@ -25,6 +19,18 @@ class FinishPackage
      * @var OrderSystemInterface
      */
     private $orderSystem;
+
+    /**
+     * FinishPackage constructor.
+     *
+     * @param PackageRepositoryInterface $packageRepository
+     * @param OrderSystemInterface       $orderSystem
+     */
+    public function __construct(PackageRepositoryInterface $packageRepository, OrderSystemInterface $orderSystem)
+    {
+        $this->packageRepository = $packageRepository;
+        $this->orderSystem = $orderSystem;
+    }
 
     public function execute(FinishPackageCommand $command): void
     {
