@@ -8,6 +8,13 @@ use App\Domain\exception\NoMatchingPackageTypeFound;
 
 class PackageTypeFinder
 {
+    /**
+     * @param Order $order
+     * @param PackageType[] $packageTypes
+     *
+     * @return PackageType
+     * @throws NoMatchingPackageTypeFound
+     */
     public function findPackageTypeForOrder(Order $order, array $packageTypes): PackageType
     {
         foreach ($packageTypes as $packageType) {
