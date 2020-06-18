@@ -21,6 +21,21 @@ class PackageType
      */
     private $name;
 
+    /**
+     * PackageType constructor.
+     *
+     * @param int    $id
+     * @param int    $maxWeight
+     * @param string $name
+     */
+    public function __construct(int $id, int $maxWeight, string $name)
+    {
+        $this->id = $id;
+        $this->maxWeight = $maxWeight;
+        $this->name = $name;
+    }
+
+
     public function canHandle(Order $order): bool
     {
         

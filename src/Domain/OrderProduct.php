@@ -21,6 +21,21 @@ class OrderProduct
      */
     private $type;
 
+    /**
+     * OrderProduct constructor.
+     *
+     * @param int    $id
+     * @param int    $weight
+     * @param string $type
+     */
+    public function __construct(int $id, int $weight, string $type)
+    {
+        $this->id = $id;
+        $this->weight = $weight;
+        $this->type = $type;
+    }
+
+
     public function getWeight(): int
     {
         return $this->weight;

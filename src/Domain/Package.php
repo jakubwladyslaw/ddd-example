@@ -47,6 +47,6 @@ class Package
 
     public function getOrderAddressLine(): string
     {
-    }
 
+    }
 }
