@@ -12,11 +12,6 @@ class Package
     private $id;
 
     /**
-     * @var PackageLabel
-     */
-    private $label;
-
-    /**
      * @var PackageType
      */
     private $type;
@@ -31,10 +26,8 @@ class Package
      */
     private $order;
 
-    public function __construct(int $id, PackageLabel $label, PackageType $type, string $status, Order $order)
+    public function __construct(PackageType $type, string $status, Order $order)
     {
-        $this->id = $id;
-        $this->label = $label;
         $this->type = $type;
         $this->status = $status;
         $this->order = $order;
@@ -47,6 +40,6 @@ class Package
 
     public function getOrderAddressLine(): string
     {
-
+        return $this->order->getAddressLine();
     }
 }

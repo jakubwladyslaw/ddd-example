@@ -8,6 +8,6 @@ class PackageFactory
 {
     public function createPackage(Order $order, PackageType $packageType): Package
     {
-        
+        return new Package($packageType, PackageStatus::CREATED, $order);
     }
 }

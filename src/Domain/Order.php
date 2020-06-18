@@ -38,7 +38,7 @@ class Order
      * @param OrderAddress $shippingAddress
      * @param \DateTime    $createdAt
      * @param bool         $isPaid
-     * @param OrderProduct $products
+     * @param array        $products
      */
     public function __construct(int $orderId, OrderAddress $shippingAddress, \DateTime $createdAt, bool $isPaid, array $products)
     {
@@ -51,7 +51,12 @@ class Order
 
     public function getTotalOrderWeight(): int
     {
+        $totalWeight = 0;
+        foreach ($this->products as $product) {
+            $totalWeight += $product->getWeight();
+        }
 
+        return $totalWeight;
     }
 
     public function isPaid(): bool
@@ -59,5 +64,8 @@ class Order
         return $this->isPaid;
     }
 
-
+    public function getAddressLine(): string
+    {
+        return $this->shippingAddress->getAddressLine();
+    }
 }

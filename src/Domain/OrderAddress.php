@@ -42,7 +42,7 @@ class OrderAddress
         $this->city = $city;
     }
 
-    public function getOrderAddress(): string
+    public function getAddressLine(): string
     {
 
     }

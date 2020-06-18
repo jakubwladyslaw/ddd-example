@@ -4,5 +4,5 @@ namespace App\Domain;
 
 interface PackageTypeRepositoryInterface
 {
-    public function getPackageTypes(): array;
+    public function getPackageTypesOrderedByWeight(): array;
 }

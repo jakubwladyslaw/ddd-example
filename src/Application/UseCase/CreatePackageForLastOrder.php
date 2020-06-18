@@ -47,7 +47,7 @@ class CreatePackageForLastOrder
     public function execute(): OrderDetailsDTO
     {
         $order = $this->orderRepository->getLastOrder();
-        $packageTypes = $this->packageTypeRepository->getPackageTypes();
+        $packageTypes = $this->packageTypeRepository->getPackageTypesOrderedByWeight();
         $packageType = $this->packageTypeFinder->findPackageTypeForOrder($order, $packageTypes);
         $package = $this->packageFactory->createPackage($order, $packageType);
         $this->packageRepository->persist($package);
