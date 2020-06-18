@@ -15,4 +15,10 @@ class OrderDetailsProductDTO
      * @var int
      */
     private $weight;
+
+    public function __construct(string $type, int $weight)
+    {
+        $this->type = $type;
+        $this->weight = $weight;
+    }
 }

@@ -6,7 +6,7 @@ namespace App\Domain;
 
 class PackageFactory
 {
-    public function createPackage(Order $order, PackageType $packageType)
+    public function createPackage(Order $order, PackageType $packageType): PackageType
     {
         
     }

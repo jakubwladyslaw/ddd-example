@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\UseCase;
 
+use App\Application\DTO\OrderDetailsDTO;
+use App\Application\DTO\OrderDetailsDTOFactory;
 use App\Domain\OrderRepositoryInterface;
 use App\Domain\PackageFactory;
 use App\Domain\PackageRepositoryInterface;
@@ -37,12 +39,19 @@ class CreatePackageForLastOrder
      */
     private $packageRepository;
 
-    public function execute()
+    /**
+     * @var OrderDetailsDTOFactory
+     */
+    private $orderDetailsDTOFactory;
+
+    public function execute(): OrderDetailsDTO
     {
         $order = $this->orderRepository->getLastOrder();
         $packageTypes = $this->packageTypeRepository->getPackageTypes();
         $packageType = $this->packageTypeFinder->findPackageTypeForOrder($order, $packageTypes);
         $package = $this->packageFactory->createPackage($order, $packageType);
         $this->packageRepository->persist($package);
+
+        return $this->orderDetailsDTOFactory->createOrderDetailsDTO($package);
     }
 }
